@@ -31,9 +31,9 @@ It generates synthetic by the following steps:
      1). generates orthonormal matrix of dimension k by s.
      2). multiplies the matrix by signal_strength.
      3). binds (p-s) zero columns to the above matrix.
-     
-  2. randomly generates n by k one-hot cluster assignments. 
-  
+
+  2. randomly generates n by k one-hot cluster assignments.
+
   3. generates n by p signal matrix and add scaled standard gaussian or t2 noise.
 }
 \examples{

@@ -11,14 +11,15 @@ SpectralClusterFeatureSelection(data, num_clusters, init_cluster_ids, use_lloyd_
 
 \item{num_clusters}{int. Number of clusters.}
 
-\item{init_cluster_ids}{vector. The initial clusters assignment. If NULL, the initial guess will 
+\item{init_cluster_ids}{vector. The initial clusters assignment. If NULL, the initial guess will
 be obtained by spectral clustering. Otherwise, step 1 is skipped and the feature selection will be
 applied based on the initial guess.}
 
 \item{use_lloyd_iteration}{bool. If TRUE, conduct Lloyd iteration at step 3. Otherwise, no Lloyd iteration.}
 }
 \value{
-A vector containing the estimated cluster assignment.
+A list containing two attributes: $cluster_ids and $info_feat_ids, where $cluster_ids
+contains the estimated cluster assignments and $info_feat_ids contains the selected feature indices.
 }
 \description{
 This function implements the main algorithm of SCFS.
@@ -26,9 +27,9 @@ This function implements the main algorithm of SCFS.
 It conducts clustering by the following steps:
 
   1. conducts spectral clustering to obtain initial guess of cluster assignments.
-  
+
   2. uses the initial guess to compute R^2 and select informative features.
-  
+
   3. conducts spectral clustering again (SCFS1) followed by Lloyd iteration (optionally for SCFS2).
 }
 \examples{
