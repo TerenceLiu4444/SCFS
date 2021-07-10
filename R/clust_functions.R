@@ -57,7 +57,7 @@ GenerateSyntheticData <-
     } else {
       stop("noise_type must by either 'gaussian' or 't2'.")
     }
-    result = list(data = data, labels = labels)
+    result = list(data = scale(data), labels = labels)
     return(result)
   }
 
