@@ -1,4 +1,4 @@
-Package: SpectralClusterFeatureSelection
+Package: SCFS
 Type: Package
 Title: Spectral Clustering with Feature Selection
 Version: 0.0.1.1
