@@ -46,9 +46,3 @@ po/*~
 
 # figures
 figures/*
-
-# simulations
-simulations/*
-
-# realdata
-realdata/*
