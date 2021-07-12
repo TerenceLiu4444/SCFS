@@ -79,7 +79,7 @@ for (n.ind in 1:length(n.ch)) {
     df_n <-
         foreach(
             rr = 1:N_REP,
-            .packages = c("sparcl", "SpectralClusterFeatureSelection", "clue"),
+            .packages = c("sparcl", "SCFS", "clue"),
             .combine = rbind,
             .options.snow=opts
         ) %dopar% {
