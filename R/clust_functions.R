@@ -131,7 +131,8 @@ SpectralClusterFeatureSelection <-
   function(data,
            num_clusters,
            init_cluster_ids,
-           use_lloyd_iteration) {
+           use_lloyd_iteration,
+           scor_thresh = 0.9) {
     #' Conducts spectral clustering followed by feature selection and another clustering.
     #'
     #' @description This function implements the main algorithm of SCFS.
@@ -150,6 +151,7 @@ SpectralClusterFeatureSelection <-
     #' be obtained by spectral clustering. Otherwise, step 1 is skipped and the feature selection will be
     #' applied based on the initial guess.
     #' @param use_lloyd_iteration bool. If TRUE, conduct Lloyd iteration at step 3. Otherwise, no Lloyd iteration.
+    #' @param scor_thresh float. The threshhold for feature selection. Default is 0.9.
     #' @usage SpectralClusterFeatureSelection(data, num_clusters, init_cluster_ids, use_lloyd_iteration)
     #' @return A list containing two attributes: $cluster_ids and $info_feat_ids, where $cluster_ids
     #' contains the estimated cluster assignments and $info_feat_ids contains the selected feature indices.
@@ -179,7 +181,7 @@ SpectralClusterFeatureSelection <-
       }
     }
     info.score = apply(cond_ssq, 2, sum) /  total_var
-    info.ind = which(info.score < 0.9 * n)
+    info.ind = which(info.score < scor_thresh * n)
     
     # In case selected features are too few.
     if (length(info.ind) < k) {
